@@ -667,12 +667,12 @@ SVGElement.prototype.setBlur = function(value) {
 		var filter = document.createElementNS(svgNS, 'feGaussianBlur');
 			filter.generateId();
 			fContainer.appendChild(filter);
-			
+			/* Setting this attributes makes the svg element using the filter invisible
 			fContainer.setAttribute('x', filterX);
 			fContainer.setAttribute('y', filterY);
 			fContainer.setAttribute('height', filterHeight);
 			fContainer.setAttribute('width', filterWidth);
-			
+			*/
 			filter.setAttributeHistory({'stdDeviation': totalDeviationX == totalDeviationY ? totalDeviationX : totalDeviationX + ' ' + totalDeviationY});
 			
 		if(svg && svg.history) {
