@@ -25,8 +25,12 @@ SVGPathElement.prototype.getPathData = function() {
 		}
 	}
 	path = path.join('');
-	
-	path = path.replace(/,/g, ' ').replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ');
+	// added .replace(/-/g, ' -'), some compresion for SVG code joins negative
+	// values with the previous value without space, for example:
+	//  c -12 -3 -5
+	// becomes with compresion:
+	// c-12-3-5
+	path = path.replace(/,/g, ' ').replace(/-/g, ' -').replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ');
 	path = path.split(' ');
 	
 	var absolute = true;
